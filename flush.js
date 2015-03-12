@@ -13,6 +13,7 @@
             angular.element($window).on('resize', flush);
 
             function flush() {
+                console.log('f')
                 if (!flushed) {
                     originalStyle = css();
                 }
@@ -44,7 +45,7 @@
 
             function parentHeight() {
                 var parent = getPositionedParent();
-                return (parent.nodeType !== 1) ? $window.innerHeight : parent.offsetHeight;
+                return parent.nodeType !== 1 ? $window.innerHeight : parent.offsetHeight;
             }
 
             function getPositionedParent() {
