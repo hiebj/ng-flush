@@ -44,7 +44,7 @@
 
             function parentHeight() {
                 var parent = getPositionedParent();
-                return parent.nodeType === 11 ? $window.innerHeight : parent.offsetHeight;
+                return (parent.nodeType !== 1) ? $window.innerHeight : parent.offsetHeight;
             }
 
             function getPositionedParent() {
