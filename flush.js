@@ -13,7 +13,6 @@
             angular.element($window).on('resize', flush);
 
             function flush() {
-                console.log('f')
                 if (!flushed) {
                     originalStyle = css();
                 }
