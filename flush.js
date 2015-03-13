@@ -79,7 +79,7 @@
 
             function isPositioned(dom) {
                 var currentStyle = $window.getComputedStyle ? $window.getComputedStyle(dom) : dom.currentStyle;
-                return currentStyle.position === 'relative' || currentStyle.position === 'absolute';
+                return currentStyle.position !== 'static';
             }
         }
 
