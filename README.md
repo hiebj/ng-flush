@@ -33,8 +33,8 @@ The directive's approach is to set the following inline styles if the element do
 
 ```css
 {
-	position: 'absolute';  
-	bottom: 0;
+    position: 'absolute';  
+    bottom: 0;
 }
 ```
 
