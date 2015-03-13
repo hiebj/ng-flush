@@ -22,7 +22,7 @@
         });
 
         describe('<footer flush>', function() {
-            it('should flush to the bottom of the viewport when the page is shorter than the viewport', function() {
+            it('should be flushed to the bottom of the viewport when the content is shorter than the viewport', function() {
                 addElement();
                 expectPosition();
             });

@@ -4,28 +4,48 @@
         .module('flush', [])
         .directive('flush', Flush);
 
-    function Flush($window) {
+    function Flush($window, $document) {
         function link($scope, $element, $attrs) {
             var originalStyle,
-                flushed = false;
+                flushed = false,
+                prevScrollHeight = getParentScrollHeight(),
+                nextFrame = window.requestAnimationFrame ||
+                    window.oRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    window.msRequestAnimationFrame ||
+                    function() {
+                        $scope.$watch(getParentScrollHeight, flush);
+                        nextFrame = angular.noop;
+                    };
             
             flush();
+            watchParentScrollHeight();
             angular.element($window).on('resize', flush);
 
             function flush() {
                 if (!flushed) {
                     originalStyle = css();
+                } else {
+                    css(originalStyle);
+                    flushed = false;
                 }
-                css(originalStyle);
-                if ($element[0].offsetTop + $element[0].offsetHeight < parentHeight()) {
+                if ($element[0].offsetTop + $element[0].offsetHeight < getParentOffsetHeight()) {
                     css({
                         position: 'absolute',
                         bottom: 0
                     });
                     flushed = true;
-                } else {
-                    flushed = false;
                 }
+            }
+
+            function watchParentScrollHeight() {
+                var scrollHeight = getParentScrollHeight();
+                if (scrollHeight !== prevScrollHeight) {
+                    flush();
+                    prevScrollHeight = scrollHeight;
+                }
+                nextFrame(watchParentScrollHeight);
             }
 
             function css(style) {
@@ -36,15 +56,19 @@
                 } else {
                     return {
                         position: $element.css('position'),
-                        width: $element.css('width'),
                         bottom: $element.css('bottom')
                     };
                 }
             }
 
-            function parentHeight() {
+            function getParentOffsetHeight() {
                 var parent = getPositionedParent();
                 return parent.nodeType !== 1 ? $window.innerHeight : parent.offsetHeight;
+            }
+
+            function getParentScrollHeight() {
+                var parent = getPositionedParent();
+                return parent.nodeType !== 1 ? $document[0].body.scrollHeight : parent.scrollHeight;
             }
 
             function getPositionedParent() {
