@@ -5,6 +5,8 @@
 
 A simple attribute directive that will flush an element to the bottom of its [closest][closest-url] [positioned][positioned-url] parent (typically the `window`).
 
+This is **not** to be confused with a **sticky footer**, which is [easy to implement using CSS][cssstickyfooter-url].
+
 It is available through NPM:
 
 ```shell
@@ -57,3 +59,4 @@ The directive binds a listener to the browser's `resize` event, so the element w
 [npm-url]: https://npmjs.org/package/ng-flush
 [closest-url]: https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
 [positioned-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+[cssstickyfooter-url]: http://www.cssstickyfooter.com/
