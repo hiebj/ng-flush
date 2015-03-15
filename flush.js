@@ -7,8 +7,9 @@
     function Flush($window, $document) {
         function link($scope, $element, $attrs) {
             var originalStyle,
-                flushed = false,
-                prevScrollHeight = getParentScrollHeight(),
+                flushed,
+                prevScrollHeight,
+                prevOffsetHeight,
                 nextFrame = window.requestAnimationFrame ||
                     window.oRequestAnimationFrame ||
                     window.mozRequestAnimationFrame ||
@@ -16,12 +17,11 @@
                     window.msRequestAnimationFrame ||
                     function() {
                         $scope.$watch(getParentScrollHeight, flush);
+                        $scope.$watch(getParentOffsetHeight, flush);
                         nextFrame = angular.noop;
                     };
-            
-            flush();
-            watchParentScrollHeight();
-            angular.element($window).on('resize', flush);
+
+            watchParentHeights();
 
             function flush() {
                 if (!flushed) {
@@ -39,13 +39,15 @@
                 }
             }
 
-            function watchParentScrollHeight() {
-                var scrollHeight = getParentScrollHeight();
-                if (scrollHeight !== prevScrollHeight) {
+            function watchParentHeights() {
+                var scrollHeight = getParentScrollHeight(),
+                    offsetHeight = getParentOffsetHeight();
+                if (scrollHeight !== prevScrollHeight || offsetHeight !== prevOffsetHeight) {
                     flush();
                     prevScrollHeight = scrollHeight;
+                    prevOffsetHeight = offsetHeight;
                 }
-                nextFrame(watchParentScrollHeight);
+                nextFrame(watchParentHeights);
             }
 
             function css(style) {
