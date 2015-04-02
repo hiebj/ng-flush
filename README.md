@@ -48,7 +48,7 @@ Typically this is best-used on an element which is the last visible child of its
 
 ## Flush triggers
 
-The directive watches the `scrollHeight` and `offsetHeight` of the closest positioned parent. If the either value changes, the element will be re-flushed.
+The directive watches the `scrollHeight` and `offsetHeight` of the closest positioned parent. If either value changes, the element will be re-flushed.
 
 > Note that the directive attempts to use `requestAnimationFrame` or its browser-specific variants (if they are available) to watch the height values of the parent. This is because using `$scope.$watch` to keep an eye on the height is not fast enough to catch changes during animations, e.g. expansion and collapse of content within the parent. As a result, there is a slight visual delay when animations cause the parent to change size when `$scope.$watch` is used. However, since many browsers still do not implement `requestAnimationFrame` or an equivalent, the directive falls back gracefully and uses `$scope.$watch` instead when animation functions are not available.
 
