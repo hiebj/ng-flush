@@ -18,6 +18,7 @@
                     function() {
                         $scope.$watch(getParentScrollHeight, flush);
                         $scope.$watch(getParentOffsetHeight, flush);
+                        angular.element($window).on('resize', flush);
                         nextFrame = angular.noop;
                     };
 
