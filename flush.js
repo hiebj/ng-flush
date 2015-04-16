@@ -64,8 +64,12 @@
             }
 
             function getParentOffsetHeight() {
-                var parent = getPositionedParent();
-                return parent.nodeType !== 1 ? $window.innerHeight : parent.offsetHeight;
+                var parent = getPositionedParent(),
+                    windowHeight = $window.innerHeight;
+                if (typeof innerHeight === 'undefined') {
+                    windowHeight = $document[0].documentElement.clientHeight; // IE8
+                }
+                return parent.nodeType !== 1 ? windowHeight : parent.offsetHeight;
             }
 
             function getParentScrollHeight() {
