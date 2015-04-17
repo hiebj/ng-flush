@@ -15,7 +15,7 @@ npm install ng-flush
 
 ## Usage
 
-Check out the [fiddle][http://jsfiddle.net/hiebj/asxua1qj/]!
+Check out the [fiddle][fiddle-url]!
 
 Include `flush.min.js` in your build or directly with a `<script>` tag and require the module in your module definition:
 
@@ -62,3 +62,4 @@ The directive watches the `scrollHeight` and `offsetHeight` of the closest posit
 [closest-url]: https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
 [positioned-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 [cssstickyfooter-url]: http://www.cssstickyfooter.com/
+[fiddle-url]: http://jsfiddle.net/hiebj/asxua1qj/
