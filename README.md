@@ -15,6 +15,8 @@ npm install ng-flush
 
 ## Usage
 
+Check out the [fiddle][http://jsfiddle.net/hiebj/asxua1qj/]!
+
 Include `flush.min.js` in your build or directly with a `<script>` tag and require the module in your module definition:
 
 ```js
