@@ -1,7 +1,7 @@
 {
   "name": "ng-flush",
   "version": "0.0.10",
-  "description": "A simple AngularJS attribute directive that will flush an element to the bottom of its closest positioned parent",
+  "description": "AngularJS directive that will flush an element to the bottom of its closest positioned parent",
   "repository": {
     "type": "git",
     "url": "https://github.com/hiebj/ng-flush.git"

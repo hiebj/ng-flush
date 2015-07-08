@@ -3,7 +3,7 @@
 [![Downloads][downloads-image]][npm-url]
 [![devDependency Status][david-image]][david-url]
 
-A simple attribute directive that will flush an element to the bottom of its [closest][closest-url] [positioned][positioned-url] parent (typically the `window`).
+An attribute directive that will flush an element to the bottom of its [closest][closest-url] [positioned][positioned-url] parent (typically the `window`).
 
 This is **not** to be confused with a **sticky footer**, which is [easy to implement using CSS][cssstickyfooter-url].
 

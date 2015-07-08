@@ -1,0 +1,25 @@
+{
+  "name": "ng-flush",
+  "homepage": "https://github.com/hiebj/ng-flush",
+  "authors": [
+    "Jonathan Hieb"
+  ],
+  "description": "AngularJS directive that will flush an element to the bottom of its closest positioned parent",
+  "main": "flush.js",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "directive",
+    "flush",
+    "sticky",
+    "footer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
