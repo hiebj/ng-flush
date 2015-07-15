@@ -16,10 +16,6 @@
     "footer"
   ],
   "license": "MIT",
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://raw.githubusercontent.com/hiebj/ng-flush/master/LICENSE"
-  }],
   "devDependencies": {
     "angular": "^1.4.2",
     "angular-mocks": "^1.4.2",
